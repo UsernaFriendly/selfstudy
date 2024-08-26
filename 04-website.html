@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 4 JS</title>
+        <style>
+            /* this
+            is a 
+            comment for
+            css
+            */
+            .red-button {
+                background-color: red;
+                color: white;
+                border: none;
+            }
+            .yellow-button 
+            {
+                background-color: yellow;
+                color: black;
+                border: 1px solid black;
+            }
+            .addtocart {
+                background-color: yellow;
+            }
+            .buynow {
+                background-color: orange;
+            }
+        </style>
+    </head>
+    <body>
+        <!--This
+        is
+        a
+        Comment for HTML-->
+        <button title="tooltip" class="red-button" 
+        onclick="
+            alert('Good job!');
+            ">hello</button>
+        <p>paragraph of <button class="yellow-button">hello</button>text</p>
+        <script>
+            alert('hello');
+            // single line comment for javascript
+            /*
+            multi
+            line
+            comment
+            for
+            javascript
+            */
+           console.log(22+2);
+           console.log('some' + 'text');
+        </script>
+        <div>
+            <p>Adults Plain Cotton T-shirt</p>
+            <p>Price $7.99</p>
+            <button class="addtocart" onclick="alert('Added')">Add to cart</button>
+            <button class="buynow" onclick="console.log('Loading...'); alert('Purchased')">Buy now</button>
+        </div>
+    </body>
+</html>

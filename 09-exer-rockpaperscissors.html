@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 09 RPS</title>
+        <link rel="stylesheet" href="09-rock-paper-scissors.css">
+    </head>
+    <body>
+        <p class="header">Rock Paper Scissors</p>
+        <p>
+            <button class="js-rock rpsgame" onclick="playGame('Rock');"><img class="moveicon" src="htmlcss/Rock-emoji.png"></button>
+            <button class="js-paper rpsgame" onclick="playGame('Paper')"><img class="moveicon" src="htmlcss/Paper-emoji.png"></button>
+            <button class="js-scissors rpsgame" onclick="playGame('Scissors')"><img class="moveicon" src="htmlcss/Scissors-emoji.png"></button>
+        </p>
+        <p class="js-result"></p>
+        <p class="js-result-description"></p>
+        <p class="js-score">Wins: 0, Losses: 0, Ties: 0</p>
+        <button class="reset" onclick="reset();">Reset Score</button>
+        <script src="09-rock-paper-scissors.js"></script>
+    </body>
+</html>

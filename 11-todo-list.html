@@ -1,0 +1,18 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>To Do List</title>
+        <link rel="stylesheet" href="styles/11-todo-list.css">
+    </head>
+    <body>
+        <p>Todo List</p>
+        <div class="todo-input-grid">
+            <input class="js-input name-input" placeholder="Todo name" onkeydown="keyDown(event.key)">
+            <input class="js-date dueDate-input" type="date">
+            <button class="add-todo-button" onclick="add();">Add</button>
+        </div>
+        <!--button onclick="clearList();">Clear List</button-->
+        <div class="container todo-grid"></div>
+        <script src="scripts/11-todo-list.js"></script>
+    </body>
+</html>

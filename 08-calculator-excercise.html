@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 08 Exercise - Calculator</title>
+        <style>
+            body {
+                background-color: black;
+                font-family: Arial, Helvetica, sans-serif;
+                color: white;
+                font-size: 30px;
+            }
+            button {
+                height: 60px;
+                width: 60px;
+                border: none;
+                border-radius: 50%;
+                margin: 0px 5px 0px 0px;
+                font-size: 26px;
+                color: white;
+            }
+            .grayButton {
+                color: white;
+                background-color: rgb(48, 48, 48);
+                margin: 0;
+            }
+            .yellowButton {
+                background-color: orange;
+            }
+            .clearButton {
+                font-size: 17px;
+            }
+            .js-output {
+                letter-spacing: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="js-output"></p>
+        <p>
+            <button class="grayButton" onclick="updateCalculation(1)">1</button>
+            <button class="grayButton" onclick="updateCalculation(2)">2</button>
+            <button class="grayButton" onclick="updateCalculation(3)">3</button>
+            <button class="yellowButton" onclick="updateCalculation('+')">+</button>
+        </p>
+        <p>
+            <button class="grayButton" onclick="updateCalculation(4)">4</button>
+            <button class="grayButton" onclick="updateCalculation(5)">5</button>
+            <button class="grayButton" onclick="updateCalculation(6)">6</button>
+            <button class="yellowButton" onclick="updateCalculation('-')">-</button>
+        </p>
+        <p>
+            <button class="grayButton" onclick="updateCalculation(7)">7</button>
+            <button class="grayButton" onclick="updateCalculation(8)">8</button>
+            <button class="grayButton" onclick="updateCalculation(9)">9</button>
+            <button class="yellowButton" onclick="updateCalculation('*')">*</button>
+        </p>
+        <p>
+            <button class="grayButton" onclick="updateCalculation(0)">0</button>
+            <button class="grayButton" onclick="updateCalculation('.')">.</button>
+            <button class="grayButton" onclick="equals()">=</button>
+            <button class="yellowButton" onclick="updateCalculation('/')">/</button>
+        </p>
+        <p>
+            <button class="grayButton clearButton" onclick="reset();">Clear</button>
+        </p>
+        <script>
+            console.log('hello');   
+            let calculation = localStorage.getItem('calculation') || "";
+            document.querySelector('.js-output').innerText = calculation;
+
+            function updateCalculation(numbah) {
+                localStorage.setItem('calculation', JSON.stringify(calculation += numbah));
+                console.log(calculation);
+                document.querySelector('.js-output').innerText = calculation;
+            }
+
+            function reset() {
+                console.log('clear');
+                calculation = "";
+                result = "";
+                localStorage.removeItem('calculation');
+                document.querySelector('.js-output').innerText = calculation;
+            }
+
+            function equals() {
+                result = eval(calculation);
+                calculation = "";
+                document.querySelector('.js-output').innerText = result;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 06 Exercise</title>
+    </head>
+    <body>
+        <button onclick="playGame('Heads')">heads</button>
+        <button onclick="playGame('Tails')">tails</button>
+        <button onclick="score.wins = 0; score.losses = 0; localStorage.removeItem('score'); console.log(`wins: ${score.wins}, losses: ${score.losses}`);">Reset</button>
+        <script>
+            /*let name = 'Niner';
+            let time = 1403;
+            if (time < 1200) {
+                console.log(`Good Morning ${name}`);
+            } else if (time >= 1200 && time <= 2400) {
+                console.log(`Good Afternoon ${name}`)
+            } else {
+                console.log('Wrong Input')
+            }
+
+
+            let age = 3;
+            let day = 'Tuesday';
+            if (age <= 6 || age >= 65) {
+                if (day == 'Sunday' || day == 'Saturday') {
+                    console.log(`Your age is ${age}, You are eligible for Double Discount!`);    
+                } else {
+                    console.log(`Your age is ${age}, You are eligible for Single Discount!`);
+                }
+            } else {
+                console.log(`Your age is ${age}, You are not eligible for Discount`)
+            }
+
+
+            let baryabols = Math.random();
+            let guess = "Tails";
+            if (baryabols < 0.5) {
+                (guess == 'Heads') ? console.log(`Your guess is ${guess} and the computer\`s guess is Heads, You Win`) : console.log(`Your guess is ${guess} and the computer\`s guess is Heads, You Lose!`)
+            } else {
+                (guess == 'Tails') ? console.log(`Your guess is ${guess} and the computer\`s guess is Tails, You Win`) : console.log(`Your guess is ${guess} and the computer\`s guess is Tails, You Lose!`)
+            }
+            */
+            let score = JSON.parse(localStorage.getItem('score')) || {
+                wins: 0,
+                losses: 0
+            };
+            console.log(score);
+
+            function playGame(guess) { //heads < 0.5, tails > 0.5
+                let baryabols = Math.random();
+                if (baryabols < 0.5) {
+                    if (guess === 'Heads') {
+                        console.log(`Your guess is ${guess} and the computer\`s guess is Heads, You Win`);
+                        score.wins += 1;
+                     } else {
+                        console.log(`Your guess is ${guess} and the computer\`s guess is Heads, You Lose!`);
+                        score.losses += 1;
+                     }
+                    } else {
+                        if (guess === 'Tails') {
+                            console.log(`Your guess is ${guess} and the computer\`s guess is Tails, You Win`);
+                            score.wins++;
+                         } else {
+                            console.log(`Your guess is ${guess} and the computer\`s guess is Tails, You Lose!`);
+                            score.losses++;
+                         }
+                    }
+                localStorage.setItem('score', JSON.stringify('score'));
+                console.log(`wins: ${score.wins}, losses: ${score.losses}`);
+            }
+        </script>
+    </body>
+</html>

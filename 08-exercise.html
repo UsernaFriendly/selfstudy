@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 08 Exercise</title>
+    </head>
+    <body>
+        
+        <script>
+            const object8a = {
+                product: 'basketball',
+                price: 2095,
+                unit: 'cents'
+            }
+            console.log(object8a);
+
+
+            object8a.price += 500;
+            console.log(object8a.price);
+
+
+            object8a['delivery-time'] = '3 days';
+            console.log(object8a);
+
+
+            const product1 = {
+                name: 'Jolen',
+                price: 1000
+            }
+            const product2 = {
+                name: 'Teks',
+                price: 1200
+            }
+            const product3 = {
+                name: 'Jolen',
+                price: 1000
+            }
+            function comparePrice(item1, item2) {
+                item1 > item2 ? console.log(product2) : console.log(product1);
+            };
+            comparePrice(product1.price, product2.price);
+
+
+            function isSameProduct(obj1, obj2) {
+                return JSON.stringify(obj1) === JSON.stringify(obj2);
+            };
+            console.log(isSameProduct(product1, product2));
+
+
+            let message = 'HELLO WORLD ';
+            console.log(message.toLowerCase());
+
+
+            console.log(message.repeat(5));
+
+
+            
+        </script>
+    </body>
+</html>

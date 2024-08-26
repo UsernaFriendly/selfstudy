@@ -1,0 +1,106 @@
+<!--
+objects = group related values together
+
+built-in objects (JSON, localStorage)
+JSON.stringify() - convert javascript object to JSON, converted values are all string
+JSON.parse() - convert JSON to javascript object 
+localStorage.getItem('') - get saved value
+localStorage.setItem('') - save a value in local storage, only save string
+if an object has different values, convert to JSON first then store
+
+more details(null, auto-boxing, references)
+shortcuts(destructuring, shorthand property, shorthand method)
+-->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 08 Objects</title>
+    </head>
+    <body>
+        <script>
+            /*const product = {
+                name: 'socks',
+                price: 1090
+            };
+            console.log(typeof product);
+            console.log(product.price);
+
+            product.name = 'cotton socks';
+            console.log(product);
+
+            product.newProperty = true;
+            console.log(product);
+
+            delete product.newProperty;
+            console.log(product);
+            */
+
+           const product2 = {
+            name: 'shirt',
+            'delivery-time': '1 day',
+            rating: {
+                stars: 4.5,
+                count: 83
+            },
+            fun: function function1 () {
+                console.log('function inside object');
+            }
+           };
+           console.log(product2);
+           console.log(product2.name);
+           console.log(product2['name']);
+           console.log(product2['delivery-time']);
+           console.log(product2.rating.stars);
+           console.log(product2.fun());
+           product2.fun();
+
+           console.log(typeof console.log);
+           console.log(JSON.stringify(product2));
+           const jsonString = JSON.stringify(product2);
+           console.log(JSON.parse(jsonString));
+
+           console.log('hello'.length);
+           console.log('hello'.toUpperCase());
+
+           const object1 = {
+            message: 'hello'
+           };
+           const object2 = object1;
+
+           object1.message = 'Good job!';
+           console.log(object1);
+           console.log(object2);
+
+           const object3 = {
+            message: 'Good job!'
+           };
+           console.log(object2 === object1);
+           console.log(object3 === object1);
+           console.log(JSON.stringify(object3) === JSON.stringify(object1));
+
+           const object4 = {
+            message: 'Good job!',
+            price: 799
+           };
+           // const message = object4.message; //if variable has the same name as the property of the object, use this instead
+           const { message, price } = object4; //called destructuring, this takes the message property out of object 4 then assign it to variable message
+           console.log(message, price)
+
+           const object5 = {
+            messages: message, //usage is same as the property below
+            message, //shorthand property, takes the value of the variable message, and assign it to the property
+            methods: function function1() { //usage is same as the next property
+                console.log('method');
+            },
+            method() {
+                console.log('method'); //shorthand method
+            }
+          };
+           console.log(object5);
+          object5.methods();
+          object5.method();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Lesson 09 DOM Projects</title>
+        <style>
+            .subscribe-button {
+                font-weight: 700;
+                height: 35px;
+                width: 90px;
+                border: none;
+                border-radius: 20px;
+                background-color: black;
+                color: white;
+                transition: background-color 150ms, color 150ms;
+                cursor: pointer;
+            }
+            .is-subscribed {
+                background-color: rgb(199, 199, 199);
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <p>YouTube Subscribe Button</p>
+        <button class="js-subscribe-button2 subscribe-button" onclick="
+        const buttonElement = document.querySelector('.js-subscribe-button2');
+        if (buttonElement.innerText === 'Subscribe') {
+            buttonElement.innerHTML = 'Subscribed';
+            buttonElement.classList.add('is-subscribed');
+            document.querySelector('.js-subscribe-button').classList.add('is-subscribed');
+        } else {
+            buttonElement.innerHTML = 'Subscribe';
+            buttonElement.classList.remove('is-subscribed');
+        }
+        ">Subscribe </button>
+        <button class="js-subscribe-button subscribe-button" onclick="
+            jsSubscribe(document.querySelector('.js-subscribe-button').innerText);
+        ">Subscribe</button>
+        <script>
+            function jsSubscribe(button) {
+                if (button === 'Subscribe') {
+                    document.querySelector('.js-subscribe-button').classList.add('is-subscribed');
+                    return document.querySelector('.js-subscribe-button').innerHTML = 'Subscribed';
+                } else if (button === 'Subscribed') {
+                    document.querySelector('.js-subscribe-button').classList.remove('is-subscribed');
+                    return document.querySelector('.js-subscribe-button').innerHTML = 'Subscribe';
+                }
+            }
+        </script>
+    </body>
+</html>

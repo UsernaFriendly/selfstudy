@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Variables</title>
+    </head>
+    <body>
+        <p>Cart Quantity</p>
+        <div class="firstrow" style="margin-bottom: 20px;">
+            <button onclick="console.log(`Current Item(s)! Cart:${cart}`);">Show Quantity</button>
+            <button onclick="checker(1);">Add to Cart</button>
+            <button onclick="checker(2);">+2</button>
+            <button onclick="checker(3);">+3</button>
+            <button onclick="reset();">Reset Cart</button>
+        </div>
+        <div>
+            <button onclick="console.log(`Current Item(s)! Cart:${cart}`);">Show Quantity</button>
+            <button onclick="checker(-1);">-1</button>
+            <button onclick="checker(-2);">-2</button>
+            <button onclick="checker(-3);">-3</button>
+            <button onclick="reset();">Reset Cart</button>
+        </div>
+        <p class="js-output"></p>
+        <script>
+            let cart = JSON.parse(localStorage.getItem('cart'))|| 0;
+            document.querySelector('.js-output').innerText = `Cart quantity: ${cart}`;
+            function checker(input) {
+                if ((cart + input) > 10) {
+                    console.log('The Cart is Full or will exceed the maximum limit of 10');
+                } else if ((cart + input) < 0) {
+                    console.log('Not enough items in the cart');
+                } else {
+                    cart += input;
+                    console.log(`${input} Item! Cart:${cart}`);
+                }
+                localStorage.setItem('cart', JSON.stringify(cart))
+                document.querySelector('.js-output').innerText = `Cart quantity: ${cart}`;
+            }
+            function reset() {
+                cart = 0; 
+                input = 0;
+                console.log(`Cart Reset!. Cart:${cart}`);
+                localStorage.removeItem('cart')
+                document.querySelector('.js-output').innerText = `Cart quantity: ${cart}`;
+            }
+        </script>
+    </body>
+</html>

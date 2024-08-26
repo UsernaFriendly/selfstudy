@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 07 Exercise</title>
+    </head>
+    <body>
+        <script>
+            function greet(name) {
+                !name ? console.log(`Hi There!`) : console.log(`Hello! ${name}`);
+            }
+            greet();
+
+            function convertToFahrenheit(celsius) {
+                console.log((celsius * 9 / 5) + 32);
+            }
+            convertToFahrenheit(32);
+
+            function convertToCelsius(fahrenheit) {
+                console.log((fahrenheit - 32) * 5 / 9);
+            }
+            convertToCelsius(86);
+
+            function convertTemperature(degrees, unit) {
+                if (unit == 'fahrenheit') {
+                    console.log(degrees + " degrees " + unit + " is equal to " + ((degrees - 32) * 5 / 9) + " degrees Celsius");
+                } else if (unit == 'celsius') {
+                    console.log(degrees + " degrees " + unit + " is equal to " + ((degrees * 9 / 5) + 32) + " degrees Fahrenheit");
+                }
+            }
+            convertTemperature(30, 'celsius');
+
+            function convertLength(length, from, to) {
+                if (from == 'km' && to == 'miles') {
+                    console.log(length + " " + from + " is equal to " + (length / 1.6) + " " + to);
+                } else if ((from == 'miles' && to == 'km')) {
+                    console.log(length + " " + from + " is equal to " + (length * 1.6) + " " + to);
+                } else if ((from == 'feet' && to == 'miles')) {
+                    console.log(length + " " + from + " is equal to " + (length / 5280) + " " + to);
+                } else if ((from == 'miles' && to == 'feet')) {
+                    console.log(length + " " + from + " is equal to " + (length * 5280) + " " + to);
+                } else if ((from == 'feet' && to == 'km')) {
+                    console.log(length + " " + from + " is equal to " + (length / 3281) + " " + to);
+                } else if ((from == 'km' && to == 'feet')) {
+                    console.log(length + " " + from + " is equal to " + (length * 3281) + " " + to);
+                }  else if (from == to) {
+                    console.log(length + " " + from);
+                } else if (to != 'km' || to != 'miles' || to != 'feet') {
+                    console.log('Invalid unit: ' + to);
+                } else if (from != 'km' || from != 'miles' || from != 'feet') {
+                    console.log('Invalid unit: ' + from);
+                } 
+            }
+            convertLength(5, 'lbs', 'km');
+
+        </script>
+    </body>
+</html>

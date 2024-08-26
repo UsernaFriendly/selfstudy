@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Lesson 09 Exercises</title>
+    </head>
+    <body>
+        <button class="js-9a" onclick="a9();">9a</button><br>
+        <button class="js-9b" onclick="b9();">9b</button>
+        <p>
+            <button onclick="c9('heads');">heads</button>
+            <button onclick="c9('tails');">tails</button>
+            <p class="js-c9-result"></p>
+        </p>
+        <p>
+            <input class="js-d9-input" placeholder="name" onkeydown="d9Keydown(event);" onclick="document.querySelector('.js-d9-input').value = '';">
+            <button onclick="d9();">Submit</button>
+            <p class="js-d9-result"></p>
+        </p>
+        <p>
+            <input class="js-h9-input" placeholder="Type here" onkeyup="h9(event);">
+            <p class="js-h9-result"></p>
+        </p>
+        <script>
+            function a9() {
+                console.log(document.querySelector('.js-9a'));
+            }
+            function b9() {
+                document.querySelector('.js-9b').innerText = '9b done!';
+            }
+            function c9(choice) {
+                if (choice === 'heads') {
+                    document.querySelector('.js-c9-result').innerText = "You chose: heads"
+                } else if (choice === 'tails') {
+                    document.querySelector('.js-c9-result').innerText = "You chose: tails"
+                }
+            }
+            function d9() {
+                document.querySelector('.js-d9-result').innerText = `Your name is: ${document.querySelector('.js-d9-input').value}`;
+            }
+            function d9Keydown(event) {
+                if (event.key === 'Enter') {
+                    d9();
+                }
+            }
+            function h9(event) {
+                document.querySelector('.js-h9-result').innerText = document.querySelector('.js-h9-input').value;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 10 Exercise</title>
+        <style>
+            .a10 {
+                background-color: rgb(255, 216, 20);
+                color: black;
+                border: none;
+                height: 30px;
+                width: 100px;
+                border-radius: 20px;
+                font-weight: bold;
+            }
+            .b101 {
+                background-color: black;
+                color: white;
+                font-size: 12px;
+                border: none;
+                font-weight: bold;
+                height: 30px;
+                width: 120px;
+                border-radius: 5px;
+            }
+            .b102 {
+                background-color: rgb(218, 218, 218);
+                font-size: 12px;
+                border: none;
+                font-weight: bold;
+                height: 30px;
+                width: 120px;
+                border-radius: 5px;
+            }
+            .d10, .d101, .d102 {
+                background-color: black;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 10px 10px 10px;
+            }
+            .is-toggled {
+                background-color: rgb(224, 224, 224);
+                color: black;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 10px 10px 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            <button class="a10">Add to Cart</button>
+        </p>
+        <p>
+            <button class="b101">Request now</button>
+            <button class="b102">Schedule for later</button>
+        </p>
+        <p>
+            <button class="js-button" onclick="console.log(document.querySelector('.js-button').classList.contains('js-button'))">Test</button>
+        </p>
+        <p>
+            <button class="d10" onclick="d10('gaming');">Gaming</button>
+            <button class="d101" onclick="d10('music');">Music</button>
+            <button class="d102" onclick="d10('tech');">Tech</button>
+        </p>
+        <script>
+            let gaming = 0;
+            let music = 0;
+            let tech = 0;
+            function d10(choice) {
+                if (choice === 'gaming') {
+                    gaming++;
+                    let tester = (gaming / 2) % 1;
+                    checker('d10', tester);
+                } else if (choice === 'music') {
+                    music++;
+                    let tester = (music / 2) % 1;
+                    checker('d101', tester);
+                } else if (choice === 'tech') {
+                    tech++;
+                    let tester = (tech / 2) % 1;
+                    checker('d102', tester);
+                }
+            }
+
+            function checker(d10button, tester){
+                let x = document.querySelector('.d10').classList.contains('is-toggled');
+                let y = document.querySelector('.d101').classList.contains('is-toggled');
+                let z = document.querySelector('.d102').classList.contains('is-toggled');
+                if (tester != 0) {
+                    if (x === false && y === false && z === false) {
+                        document.querySelector(`.${d10button}`).classList.add('is-toggled');
+                    }
+                } else if (tester === 0) {
+                    document.querySelector(`.${d10button}`).classList.remove('is-toggled')
+                }
+            }
+        </script>
+    </body>
+</html>

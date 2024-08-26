@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 09 Amazon</title>
+        <style>
+            .js-cost-input {
+                border: 2px solid black;
+                border-radius: 4px;
+                height: 35px;
+                width: 200px;
+                padding-left: 5px;
+                margin-right: 0px;
+            }
+            .calculate {
+                border: none;
+                height: 40px;
+                width: 80px;
+                background-color: green;
+                color: white;
+            }
+            .error {
+                color: red;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Amazon Shipping Calculator</p>
+        <p>Orders under $40 = +$10 shipping.</p>
+        <p>Orders over $40 = FREE shipping.</p>
+        <p>
+            <input onclick="document.querySelector('.js-cost-input').value = '';" class="js-cost-input" placeholder="Cost of order" onkeydown="keyDown(event);">
+            <button class="calculate" onclick="calc();">Calculate</button>
+        </p>
+        <p class="totalCost"></p>
+        <script>
+            console.log(-2);
+            console.log(Math.abs(-2));
+            window.document
+            window.console.log('window');
+            window.alert
+
+
+            function keyDown (event) {
+                if (event.key === 'Enter') {
+                    calc();
+                }
+            }
+            function calc() {
+                let cost = document.querySelector(".js-cost-input").value * 100;
+                if (cost < 0) {
+                    document.querySelector('.totalCost').classList.add('error')
+                    document.querySelector('.totalCost').innerHTML = `Error: Cost cannot be lower than $0`;
+                } else if (cost <= 4000) {
+                    let total = (cost + 1000) / 100;
+                    let order = cost / 100;
+                    document.querySelector('.totalCost').classList.remove('error')
+                    document.querySelector('.totalCost').innerHTML = `Order: $${order} - Shipping fee: +$10 - Total: $${total}`;
+                } else {
+                    let sum = cost / 100;
+                    document.querySelector('.totalCost').classList.remove('error')
+                    document.querySelector('.totalCost').innerHTML = `Order: $${sum} - Shipping fee: $0 - Total: $${sum}`;
+                } 
+            }
+        </script>
+    </body>
+</html>

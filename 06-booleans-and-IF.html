@@ -1,0 +1,67 @@
+<!-- 
+ In This lesson:
+ 1) Boolean values(true, false)
+ 2) IF-Statements
+ 3) Comparison Operators (>, <, >=, <=, ===, !==)
+    Logical operators (&&, ||, !)
+ 4) Algorithms, and created Rock Paper Scissors
+ 5) Truthy and Falsy values
+ 6) Shorcuts for if-statements (ternary, Guard and default)
+ -->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 06 Boolean and IF</title>
+    </head>
+    <body>
+        <script>
+            true
+            false
+            console.log(3 > 5, typeof(3 > 5));
+            console.log(5 === "5.00");
+
+            let age = 5;
+            if (age >= 18) {
+                console.log('You can now Drive!');
+            }
+            else if (age < 18) {
+                console.log('You are not Old enough to drive');
+            }
+            else {
+                Error.log('Wrong Input!');
+            }
+
+            // falsy = false, 0 ,undefined, NaN, '', null
+            const cartQuantity = 5; // truthy
+            if (cartQuantity) {
+                console.log('cart has products');
+            }
+            if (!0) {
+                console.log('cart has products');
+            }
+            console.log('text' / 5); // results a NaN
+            let variable1;
+            console.log(variable1);
+
+
+            //Ternary Operator
+            const result = 0 ? 'truthy' : 'falsy' // condition ? value if true : value if false
+            console.log(result);
+
+
+            //Guard Operator
+            false && console.log('hello'); // check the first condition then the second
+            const message = 5 && 'hello'; //check if 5 is true(truthy value) then store hello to const message
+            console.log(message);
+
+
+            //Default Operator
+            const currency = 'EUR' || 'USD' // check if first condition is true, then stores it to the currency
+            console.log(currency) // if not check 2nd if true, then stores the second value
+
+
+        </script>
+    </body>
+</html>

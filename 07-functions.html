@@ -1,0 +1,31 @@
+<!--
+1)Functions = let us reuse code
+2)Return = get a value out of a function
+3)Parameters = put values into a function
+4)improved the code for rock paper scissors
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 07: Functions</title>
+    </head>
+    <body>
+        <script>
+            /*
+            function function1 () {
+                console.log('hello');
+                console.log(2 + 2);
+            }
+
+            function1();
+            */
+
+            function calculateTax(cost, taxPercent = 0.1) { //second parameter is assigned a default value of 0.1
+                console.log(cost * taxPercent);
+            }
+            
+            calculateTax(2000, 0.2);
+            calculateTax(5000); //will produce a NaN if no default value is assigned to the second parameter
+        </script>
+    </body>
+</html>

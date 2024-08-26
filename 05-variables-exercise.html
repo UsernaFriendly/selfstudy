@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 05 Exercise</title>
+        <style>
+            .calculator button {
+                height: 30px;
+                width: 30px;
+                margin-right: 5px;
+                margin-bottom: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ab5">
+            <script>
+                let name = 'Simon';
+                console.log(`My name is ${name}`)
+            </script>
+        </div>
+        <div>
+            <p>Menu</p>
+            <button onclick="console.log(`Your Order is: Coffee(${coffeeCount}) - $${coffee}, Bagel(s)(${bagelsCount}) - $${bagels}, Soup(${soupCount}) - $${soup} `); console.log(`Your total bill is $${coffee + bagels + soup}`)">Show order</button>
+            <button onclick="coffee += 5; coffeeCount++; console.log(`You Order ${coffeeCount} Coffee(s)`); console.log(`Your total bill is $${coffee + bagels + soup}`)">Coffee: $5</button>
+            <button onclick="bagels += 2; bagelsCount++; console.log(`You Order ${bagelsCount} Bagel(s)`); console.log(`Your total bill is $${coffee + bagels + soup}`)">Bagels: $2</button>
+            <button onclick="soup += 9; soupCount++; console.log(`You Order ${soupCount} Soup(s)`); console.log(`Your total bill is $${coffee + bagels + soup}`)">Soup: $9</button>
+            <button onclick="coffee = 0; bagels = 0; soup = 0; coffeeCount = 0; bagelsCount = 0; soupCount = 0; console.log('Order has been Reset!')">Reset Order</button>
+            <script>
+                let coffee = 0;
+                let coffeeCount = 0;
+                let bagels = 0;
+                let bagelsCount = 0;
+                let soup = 0;
+                let soupCount = 0;
+                let order = 0;
+            </script>
+        </div>
+        <div class="calculator" style="display: block; margin-top: 50px;">
+            <div class="row1">
+                <button onclick="updateCalculation(1);">1</button>
+                <button onclick="updateCalculation(2);">2</button>
+                <button onclick="updateCalculation(3);">3</button>
+                <button onclick="localStorage.setItem(calculation.operand = ' + '); updateOperand();">+</button>
+            </div>
+            <div class="row2">
+                <button onclick="updateCalculation(4);">4</button>
+                <button onclick="updateCalculation(5);">5</button>
+                <button onclick="updateCalculation(6);">6</button>
+                <button onclick="localStorage.setItem(calculation.operand = ' - '); updateOperand();">-</button>
+            </div>
+            <div class="row3">
+                <button onclick="updateCalculation(7);">7</button>
+                <button onclick="updateCalculation(8);">8</button>
+                <button onclick="updateCalculation(9);">9</button>
+                <button onclick="localStorage.setItem(calculation.operand = ' * '); updateOperand();">*</button>
+            </div>
+            <div class="row4">
+                <button onclick="updateCalculation(0);">0</button>
+                <button onclick="updateCalculation('.');">.</button>
+                <button onclick="answer = eval(calculation.x + calculation.operand + calculation.y); console.log(answer); calculation.x = answer;">=</button>
+                <button onclick="localStorage.setItem(calculation.operand = ' / '); updateOperand();">/</button>
+            </div>
+            <div class="clear-row">
+                <button class="clear" onclick='localStorage.removeItem("calculation"); console.log("Cache has been cleared!")'>Clear</button>
+                <button onclick="console.log(calculation.x)">x</button>
+                <button onclick="console.log(calculation.operand)">operand</button>
+                <button onclick="console.log(calculation.y)">y</button>
+            </div>
+            <script>
+                let calculation = JSON.parse(localStorage.getItem('calculation')) || {
+                    x: "",
+                    operand: "",
+                    y: ""
+                };
+                let answer = "";
+                let display = calculation.x + " " + calculation.operand +" " + calculation.y;
+                function updateCalculation(numbah) {
+                    localStorage.setItem(calculation.y, JSON.stringify(calculation.y += numbah));
+                    console.log(calculation.y);
+                    if (calculation.x != 0) {
+                        console.log(calculation.x + calculation.operand + calculation.y);
+                    }
+                }
+
+                function updateOperand() {
+                    if (calculation.x != 0) {
+                        console.log(calculation.x + calculation.operand)
+                        localStorage.setItem(calculation.y = '');
+                    }
+                    else {
+                        localStorage.setItem(calculation.x, JSON.stringify(calculation.y)); 
+                        localStorage.setItem(calculation.y = ''); 
+                        console.log(calculation.x + calculation.operand)
+                    }
+                }
+            </script>
+        </div>
+    </body>
+</html>
